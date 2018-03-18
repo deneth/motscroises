@@ -100,9 +100,30 @@ body {
     text-align: center;
 }
 
-.test {
+.numerotation {
     width: 400px;
     float: left;
+}
+
+.num {
+    width: 35px;
+    /*border: 1px solid black;*/
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+}
+
+.num2 {
+    width: 35px;
+    /*border: 1px solid black;*/
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+}
+
+.num::before {
+    content: "";
+    margin-left: 49px;
 }
 
 .difficulte {
@@ -113,6 +134,54 @@ body {
 
 .gras {
     font-weight: bold;
+}
+
+input[type=checkbox].css-checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+
+/* css pour les checkbox */
+
+input[type=checkbox].css-checkbox+label.css-label,
+input[type=checkbox].css-checkbox+label.css-label.clr {
+    padding-left: 30px;
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: 30px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+input[type=checkbox].css-checkbox:checked+label.css-label,
+input[type=checkbox].css-checkbox+label.css-label.chk {
+    background-position: 0 -30px;
+}
+
+label.css-label {
+    background-image: url(images/csscheckbox.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input[type=submit] {
+    margin-left: 150px;
 }
 
 #copyright {

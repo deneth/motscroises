@@ -1,4 +1,25 @@
 <?php
+    function rome($num)
+    {
+        //I V X  L  C   D   M
+        //1 5 10 50 100 500 1k
+        $rome =array("","I","II","III","IV","V","VI","VII","VIII","IX");
+        $rome2=array("","X","XX","XXX","XL","L","LX","LXX","LXXX","XC");
+        $rome3=array("","C","CC","CCC","CD","D","DC","DCC","DCCC","CM");
+        $rome4=array("","M","MM","MMM","IVM","VM","VIM","VIIM","VIIIM","IXM");
+        $str=$rome[$num%10];
+        $num-=($num%10);
+        $num/=10;
+        $str=$rome2[$num%10].$str;
+        $num-=($num%10);
+        $num/=10;
+        $str=$rome3[$num%10].$str;
+        $num-=($num%10);
+        $num/=10;
+        $str=$rome4[$num%10].$str;
+        return $str;
+    }
+
     if (isset($_GET["page"]))
     {
         $Page = $_GET["page"];
@@ -20,39 +41,19 @@
             $html .= "<p>Nullam suscipit ante bibendum mauris dignissim facilisis. Aenean ut neque nisl, vel pharetra turpis. Aliquam vitae libero quis tortor feugiat tincidunt. Duis porttitor, augue sit amet tempor euismod, nibh dui elementum dui, id tempor dui felis a sapien. Aenean luctus lacinia tincidunt. Maecenas eu ultrices magna. Nam vel eleifend nulla. Suspendisse vel libero felis, mollis posuere velit. In ac dictum turpis. Vestibulum porttitor ornare purus, et suscipit lacus adipiscing ut. Pellentesque facilisis sollicitudin fringilla. Proin egestas dui tempus mauris adipiscing in lacinia lacus fermentum.</p>".PHP_EOL;
             break;
         case "grille":
-            function rome($num)
-            {
-            //I V X  L  C   D   M
-            //1 5 10 50 100 500 1k
-            $rome =array("","I","II","III","IV","V","VI","VII","VIII","IX");
-            $rome2=array("","X","XX","XXX","XL","L","LX","LXX","LXXX","XC");
-            $rome3=array("","C","CC","CCC","CD","D","DC","DCC","DCCC","CM");
-            $rome4=array("","M","MM","MMM","IVM","VM","VIM","VIIM","VIIIM","IXM");
-            $str=$rome[$num%10];
-            $num-=($num%10);
-            $num/=10;
-            $str=$rome2[$num%10].$str;
-            $num-=($num%10);
-            $num/=10;
-            $str=$rome3[$num%10].$str;
-            $num-=($num%10);
-            $num/=10;
-            $str=$rome4[$num%10].$str;
-            return $str;
-            }
             $file=$_GET['file'];
-			$diff=$_GET['diff'];
-			switch ($diff) {
-				case "facile":
-					$dir="grille/facile/";
-					break;
-				case "moyenne":
-					$dir="grille/moyenne/";
-					break;
-				case "difficile":
-					$dir="grille/difficile/";
-					break;
-			}
+            $diff=$_GET['diff'];
+            switch ($diff) {
+                case "facile":
+                    $dir="grille/facile/";
+                    break;
+                case "moyenne":
+                    $dir="grille/moyenne/";
+                    break;
+                case "difficile":
+                    $dir="grille/difficile/";
+                    break;
+            }
 			chdir($dir);
 			//$file=$file.".xml";
 			$arbre = simplexml_load_file($file); 
@@ -64,7 +65,7 @@
 			$nb_col=$config->ColumnNumber;
 			$html .= "<h3>".$nb_row."x".$nb_col." cases</h3>".PHP_EOL;
 			
-			$html .= "<div class='test'><strong>".PHP_EOL;
+			$html .= "<div class='numerotation'><strong>".PHP_EOL;
 			$i=1;
 			$html .= "<span class='index'>&nbsp;</span>".PHP_EOL;
 			while ($i<=$nb_row) {
@@ -90,17 +91,47 @@
 			$definition=$arbre->Definition;
 			$horiz=$definition->Horizontale;
 			$vert=$definition->Verticale;
-			$html .= "<div clas='test2'><strong><ol class='horiz'>".PHP_EOL;
+			$html .= "<div><strong><ol class='horiz'>".PHP_EOL;
 			foreach($horiz->Data as $def) {
 				$html .= "<li><p>".$def."</p></li>".PHP_EOL;
 			}
 			$html .= "</ol></strong></div>".PHP_EOL;
 			$html .= "<br /><br /><br /><br /><br /><br />".PHP_EOL;
-			$html .= "<div class='test3'><strong><ol class='vert'>".PHP_EOL;
+			$html .= "<div><strong><ol class='vert'>".PHP_EOL;
 			foreach($vert->Data as $def) {
 				$html .= "<li><p>".$def."</p></li>".PHP_EOL;
 			}
 			$html .= "</ol></strong></div>".PHP_EOL;
+            break;
+        case "admin":
+            $html = "<h2>Création d'une grille</h2>".PHP_EOL;
+            $html .= "<form method=\"get\" action=\"valid.php\">".PHP_EOL;
+            $html .= "<select name=\"taille\">".PHP_EOL;
+            $html .= "<option value=\"8\">8x8</option>".PHP_EOL;
+            $html .= "<option value=\"9\">9x9</option>".PHP_EOL;
+            $html .= "<option value=\"10\">10x10</option>".PHP_EOL;
+            $html .= "<option value=\"12\">12x12</option>".PHP_EOL;
+            $html .= "</select><br>";
+            for ($i=1; $i<13; $i++)
+            {
+                $html .= "<span class=\"num\">".$i."</span>";
+            }
+            $html .= "<br>".PHP_EOL;
+            for ($i=1; $i<13; $i++)
+            {
+                $html .= "<span class=\"num2\">".rome($i)."</span>";
+                for ($j=1; $j<13; $j++)
+                {
+                    $html .= "<input type=\"checkbox\" name=\"case".$i."-".$j."\" id=\"check".$i."-".$j."\" class=\"css-checkbox\" />".PHP_EOL;
+                    $html .= "<label for=\"check".$i."-".$j."\" class=\"css-label radGroup1\"></label>".PHP_EOL;
+                }
+                $html .= "<br>".PHP_EOL;
+            }
+
+            $html .= "<br><input type=\"submit\" value=\"Valider\" />".PHP_EOL;
+            $html .="</form>".PHP_EOL;
+            //$html .= "<script type=\"text/javascript\" src=\"jspatch.js\"></script>".PHP_EOL;
+            $html .= "<script type=\"text/javascript\" src=\"taillegrille.js\"></script>".PHP_EOL;
             break;
     }
 

@@ -26,7 +26,12 @@
 	</div><!-- #contenu -->
 
 	<div>
-		<p><center><a href="admin.php">Admin</a></center></p>
+		<?php	
+			if ($Page <> "admin" )
+			{
+				echo "<p><center><a href=\"index.php?page=admin\">Admin</a></center></p>".PHP_EOL;
+			}
+		?>
 	</div>
 	<p id="copyright">
 		Mise en page &copy; 2012
