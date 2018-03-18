@@ -18,7 +18,7 @@
 	</div><!-- #entete -->
 
 	<div>
-		<?php include('menu2.php'); ?>
+		<?php include('menu.php'); ?>
 	</div><!-- #navigation -->
 
 	<div id="contenu">
