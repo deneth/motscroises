@@ -150,7 +150,7 @@ unset($file[$i]); // Ceci efface le dernier élément du tableau qui est vide
 if ($i>0) {	// on affiche le sous menu si il y a des grilles
 	$j=0;
 	while ($j<$i) {
-		echo "<li class='CssMenu'><a class='CssMenu' href='grille.php?diff=facile&file=".$file[$j]."'>Grille ".($j+1)."</a></li>";
+		echo "<li class='CssMenu'><a class='CssMenu' href='index.php?page=grille&diff=facile&file=".$file[$j]."'>Grille ".($j+1)."</a></li>";
 		$j++;
 	}
 }
@@ -175,7 +175,7 @@ unset($file[$i]); // Ceci efface le dernier élément du tableau qui est vide
 if ($i>0) { // on affiche le sous menu si il y a des grilles
 	$j=0;
 	while ($j<$i) {
-		echo "<li class='CssMenu'><a class='CssMenu' href='grille.php?diff=moyenne&file=".$file[$j]."'>Grille ".($j+1)."</a></li>";
+		echo "<li class='CssMenu'><a class='CssMenu' href='index.php?page=grille&diff=moyenne&file=".$file[$j]."'>Grille ".($j+1)."</a></li>";
 		$j++;
 	}
 }
@@ -200,7 +200,7 @@ unset($file[$i]); // Ceci efface le dernier élément du tableau qui est vide
 if ($i>0) { // on affiche le sous menu si il y a des grilles
 	$j=0;
 	while ($j<$i) {
-		echo "<li class='CssMenu'><a class='CssMenu' href='grille.php?diff=difficile&file=".$file[$j]."'>Grille ".($j+1)."</a></li>";
+		echo "<li class='CssMenu'><a class='CssMenu' href='index.php?page=grille&diff=difficile&file=".$file[$j]."'>Grille ".($j+1)."</a></li>";
 		$j++;
 	}
 }

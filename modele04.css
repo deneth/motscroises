@@ -105,6 +105,16 @@ body {
     float: left;
 }
 
+.difficulte {
+    color: black;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.gras {
+    font-weight: bold;
+}
+
 #copyright {
     margin-left: 20%;
 }
