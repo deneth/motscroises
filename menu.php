@@ -12,7 +12,6 @@ ul.CssMenu,ul.CssMenu ul {
 	padding:0px 1px 1px 0px;
 	background-color:#000000;  /* couleur du fond du menu qui fait le contour du menu */
 	background-repeat:repeat;
-	border-color:;
 	border-width:0px;
 	border-style:solid;
 }
@@ -47,7 +46,7 @@ ul.CssMenu a, ul.CssMenu li.dis a:hover, ul.CssMenu li.sep a:hover {
 	padding:4px;
 	_padding-left:0;
 	font:normal 14px Verdana; /* font du texte du menu */
-	color:#FF6533;  /* couleur du texte du menu */
+	color:#3365FF;  /* couleur du texte du menu */
 	text-decoration:none;
 	cursor:default;
 }
@@ -80,7 +79,7 @@ ul.CssMenu li:hover>a{
 	border-color:#FFFFFF;
 	border-style:solid;
 	font:normal 14px Verdana; /* font du texte du menu précédent */
-	color:#cbd888; /* couleur du texte du menu précedent sélectionné */
+	color:#88d8cb; /* couleur du texte du menu précedent sélectionné */
 	text-decoration:none;
 }
 ul.CssMenu li a:hover{
@@ -89,7 +88,7 @@ ul.CssMenu li a:hover{
 	border-color:#FFFFFF;
 	border-style:solid;
 	font:normal 14px Verdana; /* font du texte du menu survolé */
-	color:#cbd888; /* couleur du texte survolé */
+	color:#88d8cb; /* couleur du texte survolé */
 	text-decoration:none;
 }
 ul.CssMenu li.dis a {

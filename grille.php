@@ -18,7 +18,7 @@
 	</div><!-- #entete -->
 
 	<div>
-		<?php include('menu2.php'); ?>
+		<?php include('menu.php'); ?>
 	</div><!-- #navigation -->
 
 	<div id="contenu">
@@ -43,7 +43,7 @@
 			  $str=$rome4[$num%10].$str;
 			  return $str;
 			}
-			
+
 			$file=$_GET['file'];
 			$diff=$_GET['diff'];
 			switch ($diff) {
