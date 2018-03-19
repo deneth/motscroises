@@ -35,7 +35,7 @@
 	</div>
 	<p id="copyright">
 		Mise en page &copy; 2012
-		<a href="mailto:didier.faure@gmail.com">Didier Faure</a>
+		<a href="mailto:deneth@gmx.fr"deneth</a>
 	</p>
 
 </div><!-- #global -->
